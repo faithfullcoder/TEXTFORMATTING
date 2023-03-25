@@ -1,3 +1,4 @@
+import { filter } from "lodash";
 import React from "react";
 import { useState } from "react";
 
@@ -48,7 +49,7 @@ export default function TestForm(props) {
       </div>
       <div className="container my-3"  style={{color:props.Mode==="light"?"black":"white"}}>
         <h2 >Your Text Summary</h2>
-        <p>{text.split(" ").length} words {text.length} characters</p>
+        <p>{text.split(" ").filter((element)=>{return element.length !==0}).length} words {text.length} characters</p>
         <p>{text.split(" ").length*0.008} Minutes To Read</p>
         <h2>Overview</h2>
         <p>{text.length>1?text:"write something in textbox above"}</p>
